@@ -1,4 +1,4 @@
-# tree-sitter-hurl
+# tree-sitter-x12
 
 A tree-sitter parser for the x12 transaction format.
 
