@@ -1,0 +1,96 @@
+[
+  {
+    "type": "data_component",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "data_element",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "component_separator",
+          "named": true
+        },
+        {
+          "type": "data_component",
+          "named": true
+        },
+        {
+          "type": "repetition_separator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "segment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "data_element",
+          "named": true
+        },
+        {
+          "type": "data_separator",
+          "named": true
+        },
+        {
+          "type": "segment_identifier",
+          "named": true
+        },
+        {
+          "type": "segment_terminator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "segment",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "component_separator",
+    "named": true
+  },
+  {
+    "type": "data_separator",
+    "named": true
+  },
+  {
+    "type": "repetition_separator",
+    "named": true
+  },
+  {
+    "type": "segment_identifier",
+    "named": true
+  },
+  {
+    "type": "segment_terminator",
+    "named": true
+  },
+  {
+    "type": "whitespace",
+    "named": true
+  }
+]

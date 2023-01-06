@@ -1,0 +1,152 @@
+{
+  "name": "x12",
+  "rules": {
+    "source_file": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "segment"
+      }
+    },
+    "segment": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "segment_identifier"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "data_separator"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "data_element"
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "type": "SYMBOL",
+          "name": "segment_terminator"
+        }
+      ]
+    },
+    "data_element": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "CHOICE",
+        "members": [
+          {
+            "type": "CHOICE",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "repetition_separator"
+              },
+              {
+                "type": "SYMBOL",
+                "name": "component_separator"
+              }
+            ]
+          },
+          {
+            "type": "SEQ",
+            "members": [
+              {
+                "type": "SYMBOL",
+                "name": "data_component"
+              },
+              {
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "CHOICE",
+                    "members": [
+                      {
+                        "type": "SYMBOL",
+                        "name": "repetition_separator"
+                      },
+                      {
+                        "type": "SYMBOL",
+                        "name": "component_separator"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "BLANK"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "data_component": {
+      "type": "PREC_RIGHT",
+      "value": 0,
+      "content": {
+        "type": "REPEAT1",
+        "content": {
+          "type": "SYMBOL",
+          "name": "_not_terminator"
+        }
+      }
+    },
+    "segment_identifier": {
+      "type": "PATTERN",
+      "value": "[A-Z0-9]{2,3}"
+    },
+    "whitespace": {
+      "type": "PATTERN",
+      "value": "[\\s\\t\\r\\n]+"
+    }
+  },
+  "extras": [
+    {
+      "type": "SYMBOL",
+      "name": "whitespace"
+    }
+  ],
+  "conflicts": [],
+  "precedences": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "segment_terminator"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "data_separator"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "component_separator"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "repetition_separator"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_not_terminator"
+    }
+  ],
+  "inline": [],
+  "supertypes": []
+}
+
