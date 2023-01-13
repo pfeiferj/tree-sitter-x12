@@ -28,6 +28,60 @@
     }
   },
   {
+    "type": "iea_segment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "data_element",
+          "named": true
+        },
+        {
+          "type": "data_separator",
+          "named": true
+        },
+        {
+          "type": "segment_identifier",
+          "named": true
+        },
+        {
+          "type": "segment_terminator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "isa_segment",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "data_element",
+          "named": true
+        },
+        {
+          "type": "data_separator",
+          "named": true
+        },
+        {
+          "type": "segment_identifier",
+          "named": true
+        },
+        {
+          "type": "segment_terminator",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "segment",
     "named": true,
     "fields": {},
@@ -62,6 +116,29 @@
       "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "transaction",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "transaction",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "iea_segment",
+          "named": true
+        },
+        {
+          "type": "isa_segment",
+          "named": true
+        },
         {
           "type": "segment",
           "named": true
